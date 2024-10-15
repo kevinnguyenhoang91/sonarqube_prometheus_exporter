@@ -143,12 +143,12 @@ def system_metric(sonarqube_server, sonarqube_token):
   compute_engine_tasks_progressing_time_metric.set(compute_engine_tasks_progressing_time)
 
   compute_engine_tasks_worker = get_json('Worker Count', compute_engine_tasks)
-  compute_engine_tasks_worker_metric.set(compute_engine_tasks_worker)  
+  compute_engine_tasks_worker_metric.set(compute_engine_tasks_worker)
 
 # Compute Engine JVM State
   compute_engine_jvm_state = get_json('Compute Engine JVM State', data)
   compute_engine_jvm_state_max_memory = get_json('Worker Count', compute_engine_jvm_state)
-  compute_engine_jvm_state_max_memory_metric.set(compute_engine_jvm_state_max_memory)  
+  compute_engine_jvm_state_max_memory_metric.set(compute_engine_jvm_state_max_memory)
 
   compute_engine_jvm_free_memory = get_json('Free Memory (MB)', compute_engine_jvm_state)
   compute_engine_jvm_free_memory_metric.set(compute_engine_jvm_free_memory)
@@ -240,23 +240,24 @@ def system_metric(sonarqube_server, sonarqube_token):
   sonarlint_client_metric.set(sonarlint_client)
 
 # Statistics
-  statistics = get_json('Statistics', data)
-  total_of_user = get_json('userCount', statistics)
-  total_of_user_metric.set(total_of_user)
+  if 'Statistics' in data:
+    statistics = get_json('Statistics', data)
+    total_of_user = get_json('userCount', statistics)
+    total_of_user_metric.set(total_of_user)
 
-  total_of_project = get_json('projectCount', statistics)
-  total_of_project_metric.set(total_of_project)
+    total_of_project = get_json('projectCount', statistics)
+    total_of_project_metric.set(total_of_project)
 
-  total_line_of_code = get_json('ncloc', statistics)
-  total_line_of_code_metric.set(total_line_of_code)
+    total_line_of_code = get_json('ncloc', statistics)
+    total_line_of_code_metric.set(total_line_of_code)
 
-  total_of_plugins = get_json('plugins', statistics)
-  total_of_plugins_metric.set(len(total_of_plugins))
+    total_of_plugins = get_json('plugins', statistics)
+    total_of_plugins_metric.set(len(total_of_plugins))
 
-  project_count_by_language = get_json('projectCountByLanguage', statistics)
-  for c in project_count_by_language:
-    project_count_by_language_metric.labels(language=c['language']).set(c['count'])
+    project_count_by_language = get_json('projectCountByLanguage', statistics)
+    for c in project_count_by_language:
+      project_count_by_language_metric.labels(language=c['language']).set(c['count'])
 
-  ncloc_count_by_language = get_json('nclocByLanguage', statistics)
-  for c in ncloc_count_by_language:
-    ncloc_count_by_language_metric.labels(language=c['language']).set(c['ncloc'])
+    ncloc_count_by_language = get_json('nclocByLanguage', statistics)
+    for c in ncloc_count_by_language:
+      ncloc_count_by_language_metric.labels(language=c['language']).set(c['ncloc'])

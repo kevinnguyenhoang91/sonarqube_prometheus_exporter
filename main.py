@@ -45,10 +45,32 @@ def exporter_start():
     sonar = SonarQubeClient(sonarqube_url=sonarqube_server, token=sonarqube_token)
 
     # Getting a list of projects from the SonarQube server.
-    projects = list(sonar.projects.search_projects())
+    projects = []
+    page = 1
+    page_size = 100
+    while True:
+        response = sonar.projects.search_projects(p=page, ps=page_size)
+        if not response['components']:
+            break
+        for project in response['components']:
+            projects.append(project)
+        page += 1
+        if page > 100:
+            break
 
     # Getting a list of metrics from the SonarQube server.
-    metrics = list(sonar.metrics.search_metrics())
+    metrics = []
+    page = 1
+    page_size = 100
+    while True:
+        response = sonar.metrics.search_metrics(p=page, ps=page_size)
+        if not response['metrics']:
+            break
+        for metric in response['metrics']:
+            metrics.append(metric)
+        page += 1
+        if page > 100:
+            break
 
     list_stat = get_stat(metrics)
     def metrics_task():
@@ -60,18 +82,13 @@ def exporter_start():
             common_metrics(projects, sonar, stats)
         rule_metrics(projects, sonar)
         event_metrics(projects, sonar)
-        
+
     # Starting the http server and scheduling the metrics_task to run every minute.
     try:
         start_http_server(exporter_listen_port, addr=exporter_listen_host)
-        schedule(minutes=1, task=metrics_task)
+        schedule(minutes=60, task=metrics_task)
     except (KeyboardInterrupt, SystemExit) as error:
         print(error)
 
 if __name__ == "__main__":
     exporter_start()
-
-
-    
-
-
