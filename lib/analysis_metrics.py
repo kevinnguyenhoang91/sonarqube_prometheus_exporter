@@ -90,7 +90,7 @@ def common_metrics(projects, sonar, stats):
             if sonar_issue_key == 'quality_profiles':
                 try:
                     parsed_value = json.loads(value)
-                    value = list(set(f"{profile['name']}/{profile['language'].upper()}" for profile in parsed_value))
+                    value = json.dumps(list(set(f"{profile['name']}/{profile['language'].upper()}" for profile in parsed_value)))
                 except json.JSONDecodeError as e:
                     print(f"Error parsing JSON for quality_profiles: {e}")
             set_metrics(sonar_issue_key, sonar_issue_domain, sonar_issue_type, value, prom_metric, project_key)
