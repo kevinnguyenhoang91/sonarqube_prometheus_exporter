@@ -14,6 +14,9 @@
 		"ghcr.io/devcontainers/features/python:1": {
 			"installTools": true,
 			"version": "3.8"
+		},
+		"ghcr.io/christophermacgown/devcontainer-features/direnv:1": {
+			"version": "latest"
 		}
 	}
 
