@@ -10,6 +10,7 @@
             "request": "launch",
             "program": "main.py",
             "console": "integratedTerminal",
+            "preLaunchTask": "direnv allow",
             // "env": {
             //     "SONARQUBE_SERVER": "${input:SONARQUBE_SERVER}",
             //     "SONARQUBE_TOKEN": "${input:SONARQUBE_TOKEN}",
