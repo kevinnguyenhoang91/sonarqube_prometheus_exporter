@@ -1,0 +1,2 @@
+export SONARQUBE_SERVER=http://localhost:9000
+export SONARQUBE_TOKEN=your-token
