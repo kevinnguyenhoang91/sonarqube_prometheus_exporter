@@ -1,0 +1,89 @@
+{
+	"files": [
+		{
+			"path": "lib/analysis_metrics.py",
+			"bookmarks": [
+				{
+					"line": 6,
+					"column": 15,
+					"label": ""
+				},
+				{
+					"line": 25,
+					"column": 20,
+					"label": ""
+				},
+				{
+					"line": 40,
+					"column": 17,
+					"label": ""
+				},
+				{
+					"line": 86,
+					"column": 26,
+					"label": ""
+				},
+				{
+					"line": 108,
+					"column": 24,
+					"label": ""
+				},
+				{
+					"line": 137,
+					"column": 32,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "main.py",
+			"bookmarks": [
+				{
+					"line": 74,
+					"column": 23,
+					"label": ""
+				},
+				{
+					"line": 79,
+					"column": 26,
+					"label": ""
+				},
+				{
+					"line": 81,
+					"column": 22,
+					"label": ""
+				},
+				{
+					"line": 82,
+					"column": 23,
+					"label": ""
+				},
+				{
+					"line": 83,
+					"column": 25,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "lib/util.py",
+			"bookmarks": [
+				{
+					"line": 31,
+					"column": 40,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "lib/system_metrics.py",
+			"bookmarks": [
+				{
+					"line": 242,
+					"column": 22,
+					"label": ""
+				}
+			]
+		}
+	]
+}
