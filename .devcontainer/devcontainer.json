@@ -16,10 +16,11 @@
 			"version": "3.8"
 		},
 		"ghcr.io/christophermacgown/devcontainer-features/direnv:1": {
-			"version": "latest"
+			"version": "latest",
+			"architecture": "arm64"
 		}
-	}
-	// "postCreateCommand": "pip install -r requirements.txt && if [[ ! -f .envrc ]]; then cp .envrc.dist .envrc; fi && direnv grant .envrc"
+	},
+	"postCreateCommand": "pip install -r requirements.txt && if [[ ! -f .envrc ]]; then cp .envrc.dist .envrc; fi && direnv grant .envrc"
 	
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
