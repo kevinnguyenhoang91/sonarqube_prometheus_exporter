@@ -19,7 +19,7 @@
 			"version": "latest"
 		}
 	},
-	"postCreateCommand": "pip install -r requirements.txt && if [[ ! -f .envrc ]]; then cp .envrc.dist .envrc; fi && direnv grant .envrc"
+	// "postCreateCommand": "pip install -r requirements.txt && if [[ ! -f .envrc ]]; then cp .envrc.dist .envrc; fi && direnv grant .envrc"
 	
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
