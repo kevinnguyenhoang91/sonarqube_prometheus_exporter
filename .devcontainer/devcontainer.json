@@ -20,6 +20,7 @@
 			"architecture": "arm64"
 		}
 	},
+	"onCreateCommand": "ln -s /run /var/run && /usr/local/share/docker-init.sh",
 	"postCreateCommand": "pip install -r requirements.txt && if [[ ! -f .envrc ]]; then cp .envrc.dist .envrc; fi && direnv grant .envrc"
 	
 	// Features to add to the dev container. More info: https://containers.dev/features.
